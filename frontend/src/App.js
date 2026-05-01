@@ -3,7 +3,7 @@ import { Routes, Route, Link, useNavigate } from 'react-router-dom';
 import Home from './pages/Home';
 import Menu from './pages/Menu';
 import Cart from './pages/Cart';
-import Checkout from './pages/Checkout';
+import OrderConfirm from './pages/OrderConfirm';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import Profile from './pages/Profile';
@@ -117,12 +117,13 @@ function App() {
               cart={cart}
               removeFromCart={removeFromCart}
               updateQuantity={updateQuantity}
+              user={user}
             />
           }
         />
         <Route
-          path="/checkout"
-          element={<Checkout cart={cart} user={user} setCart={setCart} />}
+          path="/order-confirm/:orderId"
+          element={<OrderConfirm setCart={setCart} />}
         />
         <Route path="/login" element={<Login setUser={setUser} />} />
         <Route path="/register" element={<Register setUser={setUser} />} />
